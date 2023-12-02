@@ -153,13 +153,21 @@ function addNewCard(e){
     obj.price = parseInt(ticketPrice.value); //input取得的值是string,要換成number
     obj.rate = parseInt(ticketRate.value); //input取得的值是string,要換成number
     const inputArr = document.querySelectorAll("input")
-    console.log(inputArr)
+
+    let inputHasEmptyStr = false;
     inputArr.forEach((item)=>{
-      if(item.value == ""){
-        alert("請填入資料否則無法送出");
-        return;
+      if(item.value === ""){
+        inputHasEmptyStr = true;
       }
-    })
+      // if(item.value == ""){
+      //   alert("請填入資料否則無法送出");
+      //   return;
+      // }
+    });
+    if(inputHasEmptyStr){
+      alert("請填入資料否則無法送出");
+      return;
+    }
     // if(obj.name == "" || obj.imgUrl == "" || obj.area == "" || obj.description == "" ||obj.group == "" ||obj.price == "" ||obj.rate == ""){
     //   alert("請填入資料否則無法送出");
     //   return;
@@ -221,6 +229,5 @@ const initChart = ()=>{
    
    });
    }
-
 
 
